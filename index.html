@@ -159,6 +159,9 @@
       0%, 100% { transform: scale(1); opacity: 0.9; }
       50% { transform: scale(1.2); opacity: 1; }
     }
+    .main{
+      text-align: center;
+    }
     .content {
       max-width: 800px;
       margin: 2rem auto;
@@ -174,6 +177,41 @@
       color: #5a1a00;
       text-align: center;
     }
+    .event-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8em auto;
+  background: #fffaf0;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+  font-size: 1.07em;
+}
+
+.event-table th, .event-table td {
+  border: 1px solid #e2c08d;
+  padding: 0.7em 0.5em;
+  text-align: center;
+}
+
+.event-table th {
+  background: linear-gradient(135deg,#ffe6b3,#ffd700);
+  color:#b30000;
+  font-weight: bold;
+  font-family: 'Playfair Display',serif;
+}
+
+.event-table td {
+  background: #fffaf0;
+  color: #5a1a00;
+}
+
+@media (max-width: 600px) {
+  .event-table, .event-table th, .event-table td {
+    font-size: 0.90em;
+    padding: 0.5em 0.2em;
+  }
+}
+
+
     .rsvp {
       background: rgba(255, 217, 51, 0.1);
       padding: 1.5rem 0.7rem;
@@ -222,12 +260,104 @@
       background-color: #FFD700;
       color: #E60026;
     }
+
+   .gallery-section {
+  max-width: 900px;
+  margin: 2rem auto 1rem auto;
+  padding: 0.5rem 0.6rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(255,215,0,0.10);
+  text-align: center;
+}
+.gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  color: #b30000;
+  margin-bottom: 1em;
+  letter-spacing: 1px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+.gallery img {
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255,215,0,0.15);
+  border: 2px solid #ffe6b3;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+.gallery img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 18px rgba(255,215,0,0.25);
+}
+
+/* Modal/Fullscreen styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(255,215,0,0.3);
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close:hover {
+  color: #FFD700;
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  .gallery img {
+    max-width: 98vw;
+    border-radius: 6px;
+  }
+  .close {
+    font-size: 40px;
+    top: 10px;
+    right: 20px;
+  }
+}
+  .music-section{
+    text-align: center;
+  }
     footer {
       text-align: center;
       font-size: 0.9rem;
       color: #555;
       margin: 2rem 0;
     }
+
+
     /* Mobile Styles */
     @media (max-width: 600px) {
       header h1 {
@@ -312,8 +442,8 @@
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <div class="ganesha-invocation">ॐ श्री गणेशाय नमः</div>
     <h1>Satyam ❤️ [Bride Name]</h1>
@@ -370,11 +500,33 @@
 
   <div class="content">
     <p style="text-align:center;">Together with their families, <strong>Satyam</strong> and <strong>[Bride Name]</strong> invite you to celebrate their sacred union and seek your blessings.</p>
-    <div class="details">
-      <p><strong>Date:</strong> Wednesday, 26 November 2025</p>
-      <p><strong>Time:</strong> 10:00 AM</p>
-      <p><strong>Venue:</strong> Rampur Ghat, Begusarai</p>
-    </div>
+    
+  <div class="details">
+  <table class="event-table">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr>
+        <td>Haldi and Mehndi</td>
+        <td>Tuesday, 25 Nov 2025</td>
+        <td>6:00 PM</td>
+      </tr>
+      <tr>
+        <td>Wedding Ceremony</td>
+        <td>Wednesday, 26 Nov 2025</td>
+        <td>9:00 PM</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Venue: </strong>Rampur Ghat, Begusarai</p>
+  </div>
+
+
     <div class="rsvp">
       <h3></h3>
       <form action="https://docs.google.com/forms/d/e/1FAIpQLSexbh0UUdtUv0aP2gRUqQp0KMDDW8A1klxRI8NO6SOBFqVPAg/formResponse" method="POST">
@@ -392,10 +544,70 @@
         <button type="submit">Submit</button>
       </form>
     </div>
+ </div>
+  
+ 
+ <div class="gallery-section">
+  <h3 class="gallery-title">Gallery</h3>
+  <div class="gallery">
+    <img src="https://i.postimg.cc/VL4YTzxP/360-F-1457760572-v6-L1-NR8-Lxsk-Sz-DCWTqsn0-OLhjrmw-Eju-H.jpg" alt="Photo 1" onclick="openModal(this.src)">
+    <img src="https://i.postimg.cc/mZ8JWhgQ/unnamed.png" alt="Photo 2" onclick="openModal(this.src)">
+    <img src="https://i.postimg.cc/s2f7WNKV/1000-F-550295135-DMXr-DIRdfu-B9c-XEYVHi0g-GDg-K0vn-Ak-OB-removebg-preview.png" alt="Photo 3" onclick="openModal(this.src)">
+  
   </div>
+</div>
+
+<!-- Modal for fullscreen view -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+  function openModal(src) {
+    document.getElementById('imageModal').style.display = 'flex';
+    document.getElementById('modalImage').src = src;
+  }
+  
+  function closeModal() {
+    document.getElementById('imageModal').style.display = 'none';
+  }
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+</script>
+
+   <div class="music-section">
+  <button id="musicToggle" onclick="toggleMusic()">🎵 Play Music</button>
+  <audio id="weddingMusic" loop>
+    <source src="https://github.com/LocoOp12/sample-music/raw/main/sample_music.mp3" type="audio/mpeg">
+" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+let isPlaying = false;
+function toggleMusic() {
+  const music = document.getElementById('weddingMusic');
+  const btn = document.getElementById('musicToggle');
+  if (isPlaying) {
+    music.pause();
+    btn.textContent = '🎵 Play Wedding Song';
+  } else {
+    music.play();
+    btn.textContent = '⏸️ Pause Music';
+  }
+  isPlaying = !isPlaying;
+}
+</script>
 
   <footer>
     Made with ❤️ and divine blessings for Satyam & [Bride Name]
   </footer>
+
 </body>
 </html>
